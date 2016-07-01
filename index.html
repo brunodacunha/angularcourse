@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html ng-app="gemStore">
-  <head>
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
-  </head>
-  <body ng-controller="StoreController as store">
-    <div class="product row">
-      <h3>
-        {{store.product.name}}
-        <em class="pull-right"></em>
-      </h3>
+<!doctype html>
+<html lang="en" ng-app="phonecatApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="app">
+    <div class="container" ng-controller="GuessTheNumberController">
+        <h2>Guess the Number !</h2>
+        <p class="well lead">Guess the computer generated random number between 1 and 1000.</p>
+        <label>Your Guess: </label>
+        <input type="number" ng-model="guess" />
+        <button ng-click="verifyGuess()" class="btn btn-primary'btn-sm">Verify</button>
+        <button ng-click="initializeGame()" class="btn btn-warning btn-sm">Restart</button>
+        <p>
+            <p ng-show="deviation<0" class="alert alert-warning">Your guess is higher.</p>
+            <p ng-show="deviation>0" class="alert alert-warning">Your guess is lower.</p>
+            <p ng-show="deviation===0" class="alert alert-success">Yes! That"s it.</p>
+        </p>
+        <p class="text-info">No of guesses : <span class="badge">{{noOfTries}}</span>
+            <p>
     </div>
-  </body>
+</body>
+
 </html>

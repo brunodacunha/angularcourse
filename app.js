@@ -1,7 +1,14 @@
-(function(){
-  var gem = { name: 'Azurite', price: 2.95 };
-  var app = angular.module('gemStore', []);
-  app.controller('StoreController', function(){
-    this.product = gem;
-  });
-})();
+angular.module('app', []).controller('GuessTheNumberController', GuessTheNumberController);
+function GuessTheNumberController($scope) {
+    $scope.verifyGuess = function() {
+        $scope.deviation = $scope.original - $scope.guess;
+        $scope.noOfTries = $scope.noOfTries + 1;
+    }
+    $scope.initializeGame = function() {
+        $scope.noOfTries = 0;
+        $scope.original = Math.floor((Math.random() * 1000) + 1);
+        $scope.guess = null;
+        $scope.deviation = null;
+    }
+    $scope.initializeGame();
+}
